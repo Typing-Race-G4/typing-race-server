@@ -17,7 +17,10 @@ io.on('connect', socket => {
     }
     rooms.push(room)
     console.log(rooms)
-    io.emit('updateRoom', rooms)
+    socket.emit('fetchRooms', rooms)
+  })
+  socket.on('updatedRoom', _ => {
+    socket.emit('fetchRooms', rooms)
   })
   socket.on('joinRoom', payload => {
     socket.join(payload.roomname, () => {
