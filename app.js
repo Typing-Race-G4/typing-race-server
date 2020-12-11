@@ -45,7 +45,7 @@ io.on('connect', socket => {
     let nextword = ''
     for (let i = 0; i < rooms.length; i++) {
       if (rooms[i].roomname === payload.roomname) {
-        rooms[i].counter = 1
+        // rooms[i].counter = 1
         for (let j = 0; j < rooms[i].users.length; j++) {
           if (rooms[i].users[j].username === payload.username) {
             if (payload.answer === payload.word) {
