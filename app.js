@@ -28,6 +28,7 @@ io.on('connect', socket => {
             score: payload.score
           }
           rooms[i].users.push(user)
+          io.sockets.in(rooms[i].roomname).emit('fetchPlayers', rooms[i])
           console.log(rooms)
         }
       }
