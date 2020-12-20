@@ -1,8 +1,11 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 const app = require('express')();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const randomWords = require('random-words')
-const PORT = process.env.NODE_ENV || 3000
+const PORT = process.env.PORT || 3000
 
 let rooms = []
 let users = []
